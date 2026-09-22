@@ -33,6 +33,11 @@ import java.util.List;
         Carpeta(String nombre) {
             this.nombre = nombre;
         }
+
+        //metodo agregado para poder hacer las pruebas
+        public void agregarSubcarpeta(Carpeta carpeta){
+            subcarpetas.add(carpeta);
+        }
     }
 
     class CorreoLegacy {
@@ -78,6 +83,21 @@ import java.util.List;
                     "Tamanio total: " + obtenerTamanio(carpeta));
         }
 
+        static void comprobar(String nombre, int esperado, int obtenido) {
+            if (esperado == obtenido) {
+                System.out.println("OK: " + nombre);
+            } else {
+                System.out.println("FALLO: " + nombre +
+                " | esperado=" + esperado +
+                " | obtenido=" + obtenido);
+            }
+        }
+
+        //metodo agregado para poder hacer las pruebas
+        static void agregarSubcarpeta(Carpeta padre, Carpeta hija){
+            padre.agregarSubcarpeta(hija);
+        }
+
         /* recibe una carpeta y una cadena llamada destino, envia un correo electronico al destino, que ahora entendemos  que debe de ser un 
            correo electronico. En dicho correo electronico se envia el tamaño total de la carpeta que se indicó. No devuelve nada. */
 
@@ -92,5 +112,34 @@ import java.util.List;
 
             System.out.println(obtenerTamanio(clase));
             enviarResultado(clase, "profesor@universidad.edu");
+
+            System.out.println("Pruebas:");
+            Carpeta vacia = new Carpeta("Vacia");
+            int total = obtenerTamanio(vacia); 
+            comprobar("Carpeta vacia", 0, total); 
+
+            System.out.println("-Carpeta con un archivos");
+            Carpeta arch = new Carpeta("Carpeta 120");
+            agregarArchivo(arch, "pdf", "instrucciones.pdf", 120);
+            int total2 = obtenerTamanio(arch);
+            comprobar("Carpeta 120", 120, total2); 
+
+            System.out.println("-Carpeta con 2 archivos");
+            Carpeta arch2 = new Carpeta("Carpeta 200");
+            agregarArchivo(arch2, "pdf", "practica01.pdf", 100);
+            agregarArchivo(arch2, "txt", "claves.txt", 100);
+            int total3 = obtenerTamanio(arch2); 
+            comprobar("Carpeta 200", 200, total3); 
+
+            System.out.println("-Carpeta con subcarpeta y archivos en cada una");
+            Carpeta sub = new Carpeta("Carpeta hija");
+            agregarArchivo(sub, "pdf", "notas.pdf", 100);
+            agregarArchivo(sub, "txt", "tokens.txt", 100);
+            Carpeta padre = new Carpeta("Carpeta padre");
+            agregarArchivo(sub, "pdf", "presentacion.pdf", 50);
+            agregarSubcarpeta(padre, sub);
+            int total4 = obtenerTamanio(padre);
+            comprobar("Carpeta 250", 250, total4);
+
         }
     }
