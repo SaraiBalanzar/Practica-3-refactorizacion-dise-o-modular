@@ -10,7 +10,7 @@ Práctica 03. Refactorización
 
 En este archivo se explicarán algunas etapas del proceso de refactorización que se realizó en esta práctica.
 
-
+---
 # Etapa 1. ¿Qué hace cada parte?
 * **El método `agregarArchivo()` se encarga de:** 
 
@@ -33,4 +33,13 @@ En este archivo se explicarán algunas etapas del proceso de refactorización qu
     2. Si quieremos un meter un archivo de tipo .jpg, tendremos que crear una clase padre en la que crearemos archivos de tipo genérico, y que además, implemente una interfaz, y dicha interfaz tendrá un método crearArchivo(). La clase padre, tendrá hijos, y cada uno de ellos se centrará en un tipo de archivo, ya sea .txt, .md, .pdf, etc, etc. Y además, estos hijos, deberan de implementar la interfaz.
     
     3. Separar las clases, pues lo más óptimo no será tener todo en un solo archivo, pues hace más difícil su lectura y es en parte, una mala práctica
+---
 
+# Etapa 2. Prueba de ejecución
+Para esta etapa, se mostrará que después de los cambios realizados en el código, la ejecución sigue mostrando los resultados esperados.
+
+<div align="center">
+
+<img src="./pruebas_imagenes/Pruebas_E2.png" width="700">
+
+</div>
