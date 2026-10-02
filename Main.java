@@ -10,10 +10,9 @@
 
     public class Main {
 
-        static void enviarResultado(Carpeta carpeta, String destino) {
-            CorreoLegacy correo = new CorreoLegacy();
-            correo.send_email(destino,
-                    "Tamanio total: " + carpeta.obtenerTamanio());
+        static void enviarResultado(Carpeta carpeta, String destino, Notificador notificador) {
+            int total = carpeta.obtenerTamanio();
+            notificador.enviar(destino, "Tamanio total: " + total);
         }
 
         //método para comprobar si el resultado es el correcto
@@ -47,7 +46,8 @@
 
             // imprimimos el tamanio y la simulacion del correo
             System.out.println(clase.obtenerTamanio());
-            enviarResultado(clase, "profesor@universidad.edu");
+            Notificador notificador = new AdaptadorCorreo(new CorreoLegacy());
+            enviarResultado(clase, "profesor@universidad.edu", notificador);
 
             //Pruebas
             System.out.println("\n***** Ejecutando las pruebas *****");

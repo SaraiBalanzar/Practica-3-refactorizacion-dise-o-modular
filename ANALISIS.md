@@ -61,3 +61,14 @@ Mostramos que después de aplicar Factory Method al código, los resultados se m
 <img src="./pruebas_imagenes/pruebas-etapa-4.png" width = "700">
 
 </div>
+
+---
+# Etapa 5. Adapter
+Se agregó la interfaz `Notificador` con el método `enviar(destino, mensaje)` y la clase  `AdaptadorCorreo`, que contiene un `CorreoLegacy` y traduce `enviar` a `send_email` sin modificar `CorreoLegacy`. `enviarResultado` ahora recibe un `Notificador`, así que ya no depende de un proveedor de correo concreto ni del nombre de su método.
+Mostramos que la salida se mantiene igual:
+
+<div align="center">
+
+<img src="./pruebas_imagenes/pruebas-etapa-5.png" width="700">
+
+</div>
