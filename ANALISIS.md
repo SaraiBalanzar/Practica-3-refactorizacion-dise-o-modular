@@ -36,10 +36,28 @@ En este archivo se explicarán algunas etapas del proceso de refactorización qu
 ---
 
 # Etapa 2. Prueba de ejecución
+Se muestra las pruebas antes de realizar cualquier cambio al código.
+<div align="center">
+
+<img src="./pruebas_imagenes/pruebas-prerefactorizacion.png" width="700">
+
+</div>
+---
+
+# Etapa 3. Prueba de ejecución
 Para esta etapa, se mostrará que después de los cambios realizados en el código, la ejecución sigue mostrando los resultados esperados.
 
 <div align="center">
 
 <img src="./pruebas_imagenes/Pruebas_E2.png" width="700">
+
+</div>
+
+---
+# Etapa 4. Prueba de ejecución
+Mostramos que después de aplicar Factory Method al código, los resultados se mantienen iguales.
+<div align="center">
+
+<img src="./pruebas_imagenes/pruebas-etapa-4.png" width = "700">
 
 </div>
