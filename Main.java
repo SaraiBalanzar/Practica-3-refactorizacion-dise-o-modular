@@ -43,6 +43,8 @@
             Archivo ejemplo = creadorTexto.crearArchivo("ejemplo.txt", 50);
             ejemplos.agregar(ejemplo);
 
+            clase.agregar(ejemplos);
+
             // imprimimos el tamanio y la simulacion del correo
             System.out.println(clase.obtenerTamanio());
             enviarResultado(clase, "profesor@universidad.edu");
@@ -80,7 +82,6 @@
             Carpeta arch0 = new Carpeta("Carpeta cero");
             arch0.agregar(creadorTexto.crearArchivo("vacio.txt", 0));
             comprobar("Carpeta co archivo de 0 bytes", 0, arch0.obtenerTamanio());
-
 
         }
     }
