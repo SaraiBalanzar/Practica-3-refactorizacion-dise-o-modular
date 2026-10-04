@@ -81,3 +81,33 @@ Diagrama final con esquema de cajas y flechas que muestran la relación entre ca
 <img src="./diagrama_final/diagrama_final.png" width="700">
 
 </div>
+
+---
+# Preguntas de la Etapa 6.
+## ¿Qué responsabilidad se movió a cada clase?
+* **Clase `Main`:**
+    En esta clase se realizan las pruebas llamando a los métodos de las nuevas clases. Contiene la clase `CorreoLegacy` la cual sirve para conectar el adaptador de correos con el destino y el mensaje. Contiene los métodos `enviarResultado` el cual envía el tamaño total de la carpeta y `comprobar` el cual compara los resultados obtenidos de las pruebas realizadas con los resultados esperados, compara un valor esperado con el valor que se obtiene del método `obtenerTamanio()` e imprime si es correcto o en caso de ser incorrecto añade cual era el resultado esperado.
+* **Clase `Elemento`:**
+    Es una interfaz que únicamente contiene `obtenerTamanio()` la cual compartiran los demás elementos que la implementan.
+* **Clase `Archivo`:**
+    En esta se contiene el contructor que comparten los archivos, recibe el nombre y tamaño. Igualmente implementa el método `obtenerTamanio()` que devuelve únicamente el tamaño.
+* **Clase `ArchivoPDF`:**
+    Contructor de Archivos del tipo PDF.
+* **Clase `ArchivoTexto`:**
+    Contructor de Archivos del tipo Texto.
+* **Clase `Carpeta`:**
+    En lugar de usar varias listas, crea una sola de elementos a la cual se le podrán añadir elementos con el método `agregar` y reescribe el método `obtenerTamanio()` para que pueda sumar el tamaño de los elementos, incluyendo el caso donde sus elementos sean carpetas.
+* **Clase `CreadorArchivo`:**
+    Contiene el método abstracto para crear archivos de cualquier tipo.
+* **Clase `CreadorPDF`:**
+    Implementa el método `crearArchivo` y devuelve un archivo PDF con los datos.
+* **Clase `CreadorTexto`:**
+    Implementa el método `crearArchivo` y devuelve un archivo Texto con los datos.
+* **Clase `Notificador`:**
+    Es una interfaz que solo contiene `enviar` que recibe el destino y el mensaje.
+* **Clase `AdaptadorCorreo`:**
+    Conecta los métodos para enviar, con `CorreoLegacy` se llama al método `send_email` y el método `enviar` que viene de la interfaz `Notificador`.
+
+## ¿Qué permaneció igual para quien usa el programa?
+Únicamente se dividieron mejor las clases, se optimizaron algunos métodos y se conectaron mejor las clases. Los constructores, datos de entrada y salida e idea de los métodos no se modifican. Con los cambios realizados es más sencillo realizar las modificaciones necesarias sin tener que modificar todo el código, comparando el código inicial, se notan los cambios en la división y en algunos métodos para enviar correos o para las carpetas, pero vemos que la mayoría de los constructores o la forma en que se busca que el método cumpla su función es la misma.
+
