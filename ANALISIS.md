@@ -72,3 +72,12 @@ Mostramos que la salida se mantiene igual:
 <img src="./pruebas_imagenes/pruebas-etapa-5.png" width="700">
 
 </div>
+
+---
+# Diagrama del programa
+Diagrama final con esquema de cajas y flechas que muestran la relación entre cada clase.
+<div align = "center">
+
+<img src="./diagrama_final/diagrama_final.png" width="700">
+
+</div>
